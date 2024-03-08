@@ -1,0 +1,28 @@
+.data
+mssg:.asciiz "\n Enter a number\n"
+true:.asciiz "\n Your value is ture \n"
+false:.asciiz "\n Your value is false \n"
+.text
+main: 
+li $v0,4
+la $a0,mssg
+syscall
+li $v0,5
+syscall
+li $t1,2 
+move $t0,$v0
+beq $t0,$t1,T
+li $v0,4
+la $a0,false
+syscall
+j exit 
+syscall
+T:
+li $v0, 4
+la $a0, true
+syscall
+j exit
+syscall
+exit:
+li $v0,10
+syscall

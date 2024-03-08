@@ -1,0 +1,31 @@
+.data
+mssg:.asciiz "\n Enter the Number \n"
+sum:.asciiz "\n the sum is \n"
+.text
+li $t0,0
+li $t1,5
+for:
+beq $t0,$t1,exit
+li $v0, 4
+la $a0, mssg
+syscall
+li $v0,5
+syscall
+move $t2,$v0
+add $t3,$t3,$t2
+addi $t0,$t0,1
+j for
+syscall
+
+exit:
+li $v0,4
+la $a0,sum
+syscall
+li $v0,1
+move $a0,$t3
+syscall
+li $v0,10
+syscall
+
+
+

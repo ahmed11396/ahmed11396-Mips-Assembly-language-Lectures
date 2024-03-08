@@ -1,0 +1,22 @@
+.data
+mssg1:.asciiz "\nI am indie the main\n"
+mssg2:.asciiz "\nI am indie the funcation\n"
+
+.text
+
+main:
+li $v0, 4
+la $a0,mssg1
+syscall
+j fun
+syscall
+fun:
+li $v0, 4
+la $a0,mssg2
+syscall 
+j exit
+exit:
+li $v0,10
+syscall
+
+
